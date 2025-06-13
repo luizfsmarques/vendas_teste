@@ -79,50 +79,46 @@ class VendaController extends Controller
             $Venda->vendedor = $vendedor->id;
             $Venda->cliente = $request->cliente;
 
-            var_dump($request->forma_pgmt); echo '<br><br>';
-            var_dump('0'); echo '<br><br>';
+            $Venda->save();
 
-            
-            // $Venda->save();
+            $ultimaVenda = DB::table('vendas')->select('id')->latest()->get();
 
-            // $ultimaVenda = DB::table('vendas')->select('id')->latest()->get();
-
-            // foreach($request->all() as $key=>$registro)
-            // {
-            //     if(str_contains($key,'parcela_bd_'))
-            //     {
-            //         DB::table('parcelas')->insert([
-            //             'parcela' => $registro['parcela'],
-            //             'tipo_pgmt' => $registro['tipo_pgmt'],
-            //             'data_venc' => $registro['data_venc'],
-            //             'valor' => $registro['valor'],
-            //             'observacao' => $registro['observacao'],
-            //             'created_at'=>date('Y-m-d h:i:s'),
-            //             'venda' => $ultimaVenda[0]->id,
-            //         ]);
-            //     }
-            // }
+            foreach($request->all() as $key=>$registro)
+            {
+                if(str_contains($key,'parcela_bd_'))
+                {
+                    DB::table('parcelas')->insert([
+                        'parcela' => $registro['parcela'],
+                        'tipo_pgmt' => $registro['tipo_pgmt'],
+                        'data_venc' => $registro['data_venc'],
+                        'valor' => $registro['valor'],
+                        'observacao' => $registro['observacao'],
+                        'created_at'=>date('Y-m-d h:i:s'),
+                        'venda' => $ultimaVenda[0]->id,
+                    ]);
+                }
+            }
 
         }
 
-        // $ultimaVenda = DB::table('vendas')->select('id')->latest()->get();
+        $ultimaVenda = DB::table('vendas')->select('id')->latest()->get();
 
-        // foreach($request->all() as $key=>$registro)
-        // {
-        //     if(str_contains($key,'produto_bd_'))
-        //     {
-        //         DB::table('venda_produto')->insert([
-        //             'qtd' => $registro['qtd'],
-        //             'valor' => $registro['valor'],
-        //             'subtotal' => $registro['subtotal'],
-        //             'created_at'=>date('Y-m-d h:i:s'),
-        //             'venda' => $ultimaVenda[0]->id,
-        //             'produto' => $registro['produto'],
-        //         ]);
-        //     }
-        // }
+        foreach($request->all() as $key=>$registro)
+        {
+            if(str_contains($key,'produto_bd_'))
+            {
+                DB::table('venda_produto')->insert([
+                    'qtd' => $registro['qtd'],
+                    'valor' => $registro['valor'],
+                    'subtotal' => $registro['subtotal'],
+                    'created_at'=>date('Y-m-d h:i:s'),
+                    'venda' => $ultimaVenda[0]->id,
+                    'produto' => $registro['produto'],
+                ]);
+            }
+        }
 
-        // return redirect('/vendas')->with('msg','Venda salva com sucesso!');
+        return redirect('/vendas')->with('msg','Venda salva com sucesso!');
 
     }
 
