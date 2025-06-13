@@ -4,7 +4,7 @@
 
     <p>Cadastro do vendedor</p>
 
-    <form action="/vendedores/store" method="POST" >
+    <form action="/vendedores/store" method="POST">
         @csrf
 
         <div class="col-12">
@@ -12,10 +12,12 @@
             <input type="text" name="nome" class="form-control" id="nome">
         </div>
 
-        <!-- Botar um select aqui para o tipo! -->
         <div class="col-12">
-            <label for="nome" class="form-label">Tipo:</label>
-            <input type="text" name="nome" class="form-control" id="nome">
+            <label for="tipo" class="form-label">Tipo:</label>
+            <select name="tipo" class="form-select" aria-label="tipo_user">
+                <option value="vendedor">Vendedor</option>
+                <option value="administrador">Administrador</option>
+            </select>
         </div>
 
         <div class="col-12">
@@ -25,10 +27,8 @@
 
         <div class="col-12">
             <label for="senha" class="form-label">Senha</label>
-            <input type="text" name="senha" class="form-control" id="nome">
+            <input type="password" name="senha" class="form-control" id="nome">
         </div>
-
-        
 
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Salvar</button>

@@ -25,28 +25,32 @@ class UserController extends Controller
 
     public function store (Request $request)
     {
-        $User = new Cliente;
+        $User = new User;
 
         $request->validate(
             [
             'nome' => 'required',
-            'cpf'=> 'required|size:14',
+            'tipo'=> 'required',
+            'email'=> 'required',
+            'senha'=> 'required',
+
             ],
             [
                 'nome.required'=>'O nome não pode ser vazio!',
-                'cpf.required'=>'O CPF não pode ser vazio!',
-                'cpf.size'=>'O CPF não pode passar de 14 dígitos, incluindo a pontuação!',
+                'tipo.required'=>'O tipo do usuário não pode ser vazio!',
+                'email.required'=>'O e-mail não pode ser vazio!',
+                'senha.required'=>'O senha não pode ser vazia!',
             ]
         );
 
-        // $User->nome = $request->nome;
-        // $User->tipo = $request->tipo;
-        // $User->email = $request->email;
-        // $User->senha = $request->senha;
+        $User->name = $request->nome;
+        $User->tipo = $request->tipo;
+        $User->email = $request->email;
+        $User->password = $request->senha;
         
-        // $User->save();
+        $User->save();
 
-        // return redirect('/vendedores')->with('msg','Vendedor criado com sucesso!');
+        return redirect('/vendedores')->with('msg','Vendedor criado com sucesso!');
 
     }
 
@@ -58,44 +62,43 @@ class UserController extends Controller
 
     public function edit ($id)
     {
-        return view('/sistema/clientes/edit',['cliente'=>Cliente::findOrFail($id)]);
+        return view('/sistema/users/edit',['user'=>User::findOrFail($id)]);
     }
     
     public function update (Request $request,$id)
     {
-        $cliente = Cliente::findOrFail($id);
+        $user = User::findOrFail($id);
 
         $request->validate(
             [
             'nome' => 'required',
-            'cpf'=> 'required|size:14',
+            'tipo'=> 'required',
             ],
             [
                 'nome.required'=>'O nome não pode ser vazio!',
-                'cpf.required'=>'O CPF não pode ser vazio!',
-                'cpf.size'=>'O CPF não pode passar de 14 dígitos, incluindo a pontuação!',
+                'tipo.required'=>'O tipo do usuário não pode ser vazio!',
             ]
         );
 
-        $cliente->nome = $request->nome;
-        $cliente->cpf = $request->cpf;
+        $user->name = $request->nome;
+        $user->tipo = $request->tipo;
 
-        $cliente->save();
+        $user->save();
 
-        return redirect('/clientes')->with('msg','Cliente atualizado com sucesso!');
+        return redirect('/vendedores')->with('msg', 'Vendedor atualizado com sucesso!');
     }
 
     public function delete ($id)
     {
-        return view('/sistema/clientes/delete',['cliente'=>Cliente::findOrFail($id)]);
+        return view('/sistema/users/delete',['user'=>User::findOrFail($id)]);
 
     }
 
     public function destroy ($id)
     {
-        Cliente::findOrFail($id)->delete();
+        User::findOrFail($id)->delete();
 
-        return redirect('/clientes')->with('msg','Cliente excluido com sucesso!');
+        return redirect('/vendedores')->with('msg','Vendedor excluido com sucesso!');
     }
     
 

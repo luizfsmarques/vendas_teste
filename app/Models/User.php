@@ -65,4 +65,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function vendas ()
+    {
+        return $this->hasMany('App\Models\Venda');
+    }
+
 }
