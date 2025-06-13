@@ -7,7 +7,6 @@
     <form action="/vendas/store" method="POST" >
         @csrf
 
-
         <div class="container-fluid">
 
             <h1>Clientes</h1>
@@ -22,7 +21,6 @@
             </div>
 
         </div>
-
 
         <div class="container-fluid">
 

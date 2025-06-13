@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('tipo_pgmt',8);
             $table->date('data_venc');
             $table->double('valor');
-            $table->string('observacao');
+            $table->string('observacao')->nullable();
             $table->timestamps();
         });
     }

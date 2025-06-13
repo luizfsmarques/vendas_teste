@@ -18,7 +18,7 @@ Route::get('/', function () {
     Vendas
 */
 Route::get('/vendas', [VendaController::class, 'index']);
-
+Route::get('/vendas/detalhes/{id?}', [VendaController::class, 'show']);
 Route::get('/cadastro/vendas', [VendaController::class, 'create']);
 Route::post('/vendas/store', [VendaController::class, 'store']);
 Route::get('/editar/vendas/{id}', [VendaController::class, 'edit']);

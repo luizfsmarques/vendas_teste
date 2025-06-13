@@ -10,11 +10,12 @@
         @if(count($vendas)!=0)
             @foreach($vendas as $venda)
             <li class="list-group-item">
-                <p>Nome: {{$venda->nome}}</p>
-                <p>Valor de venda: {{$venda->valor_venda}}</p>
-                <p>Valor de compra: {{$venda->valor_compra}}</p>
+                <p>Vendedor: {{$venda->name}}</p>
+                <p>Valor total: R${{$venda->valor_total}}</p>
                 <a href="/editar/vendas/{{$venda->id}}" class="btn btn-warning">Editar</a>
                 <a href="/deletar/vendas/{{$venda->id}}" class="btn btn-danger">Excluir</a>
+                <a href="/vendas/detalhes/{{$venda->id}}" class="btn btn-primary">Detalhes</a>
+                <a href="#" class="btn btn-success">PDF</a>
             </li>
             @endforeach
         @else

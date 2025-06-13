@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->double('valor_venda');
-            $table->double('valor_compra');
+            $table->double('valor_compra')->nullable();
             $table->timestamps();
         });
     }

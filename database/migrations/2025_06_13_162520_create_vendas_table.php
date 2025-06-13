@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('parcelamento');
             $table->integer('qtd_parcelas');
-            $table->string('tipo_pgmt_vista',8);
+            $table->string('tipo_pgmt_vista',8)->nullable();
             $table->string('forma_pgmt',13);
             $table->date('data_venc_vista');
             $table->double('valor_total');
