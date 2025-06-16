@@ -133,9 +133,6 @@ class VendaController extends Controller
     }
 
 
-
-
-
     public function show ($id=null)
     {
         if(!empty($id))

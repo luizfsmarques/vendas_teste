@@ -99,13 +99,13 @@
                         <input type="text" class="form-control">
                     </div>
                     <div class="col-2">
-                        <input type="number" name="produto_bd_0[qtd]" class="form-control">
+                        <input type="number" name="produto_bd_0[qtd]" class="form-control atualizar-produto">
                     </div>
                     <div class="col-2">
-                        <input type="number" step="0.01" name="produto_bd_0[valor]" class="form-control">   
+                        <input type="number" step="0.01" name="produto_bd_0[valor]" class="form-control atualizar-produto">
                     </div>
                     <div class="col-2">
-                        <input type="number" step="0.01" name="produto_bd_0[subtotal]" class="form-control">
+                        <input type="number" step="0.01" name="produto_bd_0[subtotal]" class="form-control atualizar-produto">
                     </div>
                     <div class="col-2">
                         <a class="btn btn-danger">Excluir</a>
