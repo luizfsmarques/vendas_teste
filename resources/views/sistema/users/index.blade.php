@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <p>VENDEDORES</p>
+    <p class="titulo">Vendedores</p>
     
-    <a href="/cadastro/vendedores" class="btn btn-primary">Novo vendedor</a>
+    <a href="/cadastro/vendedores" class="btn-cadastro btn btn-primary">Novo vendedor</a>
 
     <ul class="list-group">
         @if(count($users)!=0)

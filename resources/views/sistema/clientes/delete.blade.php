@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <p>EXCLUSÃO DE CLIENTES</p>
+    <p class="titulo">Exclusão dos clientes</p>
 
     <div>
         <p>Tem certeza que deseja excluir o cliente {{$cliente->nome}} com cpf {{$cliente->cpf}}?</p>

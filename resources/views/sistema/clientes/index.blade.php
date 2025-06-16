@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <p>CLIENTES</p>
+    <p class="titulo">Clientes</p>
 
-    <a href="/cadastro/clientes" class="btn btn-primary">Novo cliente</a>
+    <a href="/cadastro/clientes" class="btn-cadastro btn btn-primary">Novo cliente</a>
 
     
     <ul class="list-group">

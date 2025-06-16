@@ -1,0 +1,17 @@
+.navbar{
+    height: 80px;
+    background-color: #DCDCDC;
+    box-shadow: 2px 2px #DCDCDC;
+    margin-bottom: 25px;
+}
+
+.titulo{
+    font-size: 2rem;
+    padding-left: 20px;
+}
+
+.btn-cadastro{
+    margin-bottom: 25px;
+    position: relative;
+    left: 25px;
+}

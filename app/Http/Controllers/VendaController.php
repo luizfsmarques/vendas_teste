@@ -140,27 +140,10 @@ class VendaController extends Controller
     {
         if(!empty($id))
         {
-
-            //PAREI AQUI! 
-
-            /*
-                Posso fazer 3 joins:
-                - Para vendas e vendedores OK!
-                - Para vendas e itens
-                - Para vendas e parcelas
-
-                Aí exibo cada um no seu devido lugar... depois cuido da edição e exclusão de uma venda.
-
-                Por fim... resolvo só o frontend.
-            */
-
-
-            $vendas = DB::table('vendas')
-            ->join('users', 'users.id', '=', 'vendas.id')
-            ->select('users.name','vendas.id','vendas.valor_total', 'vendas.created_at')
-            ->get();
-
-            var_dump($vendas); echo '<br><br>';
+            // $vendas = DB::table('vendas')
+            // ->join('users', 'users.id', '=', 'vendas.id')
+            // ->select('users.name','vendas.id','vendas.valor_total', 'vendas.created_at')
+            // ->get();
 
             // $resultados = DB::table('tabela_a')
             //     ->join('tabela_b', 'tabela_a.coluna_id', '=', 'tabela_b.coluna_id')

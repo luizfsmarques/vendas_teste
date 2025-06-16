@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <p>Edição do cliente</p>
+    <p class="titulo">Edição do cliente</p>
 
     <form action="/produtos/update/{{$produto->id}}"  method="POST">
     @csrf

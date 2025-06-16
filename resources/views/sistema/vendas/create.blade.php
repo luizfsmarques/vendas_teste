@@ -2,12 +2,14 @@
 
 @section('content')
 
-    <p>Nova venda</p>
+    <link rel="stylesheet" href="{{asset('css/vendas.css')}}" type="text/css">
+
+    <p class="titulo">Nova venda</p>
 
     <form action="/vendas/store" method="POST" >
         @csrf
 
-        <div class="container-fluid">
+        <div class="box-info container-fluid">
 
             <h1>Clientes</h1>
 
@@ -22,44 +24,45 @@
 
         </div>
 
-        <div class="container-fluid">
+        <div class="box-info container-fluid">
 
-            <h1>ITENS</h1>
+            <h1>Itens</h1>
 
-            <div class="row">
+            <div class="info-produto row">
 
                 <div class="col-3">
                     <label for="produto" class="form-label">Produto</label>
-                    <select  class="form-select" aria-label="produto">
+                    <select id="produto"  class="form-select" aria-label="produto">
                         <option selected>Escolha um produto</option>
                         @foreach($produtos as $produto)
-                            <option>{{$produto->nome}} | R${{$produto->valor_venda}}</option>
+                            <option>{{$produto->id}} | {{$produto->nome}} | R${{$produto->valor_venda}}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="col-2">
                     <label class="form-label">Quantidade</label>
-                    <input type="number" class="form-control">
+                    <input id="qtd-produto" type="number" class="form-control">
                 </div>
 
                 <div class="col-2">
                     <label class="form-label">Valor unitário</label>
-                    <input type="number"class="form-control" >
+                    <input id="valor-unitario" type="number"class="form-control" >
                 </div>
 
                 <div class="col-2">
                     <label class="form-label">Subtotal</label>
-                    <input type="number" step="0.01" class="form-control">
+                    <input id="subtotal-produto" type="number" step="0.01" class="form-control">
                 </div>
 
                 <div class="col-1">
+                    <label class="form-label"></label>
                     <a id="add-prod" class="btn btn-primary">Adicionar</a>
                 </div>
                 
             </div>
 
-            <div class="container-fluid">
+            <div id="adicao-produtos" class="box-info container-fluid">
 
                 <div class="row">
                     <div class="col-1">
@@ -84,9 +87,8 @@
                         <p>Ações</p>
                     </div>
                 </div>
-
-
-                <div class="row">
+                
+                <!-- <div class="produtos-adicionados row">
                     <div class="col-1">
                         <input type="text" class="form-control">
                     </div>
@@ -107,47 +109,17 @@
                     </div>
                     <div class="col-2">
                         <a class="btn btn-danger">Excluir</a>
-                        <a class="btn btn-warning">Atualizar</a>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="row">
-                    <div class="col-1">
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-1">
-                        <input type="text" name="produto_bd_1[produto]" class="form-control">
-                    </div>
-                    <div class="col-2">
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-2">
-                        <input type="number" name="produto_bd_1[qtd]" class="form-control">
-                    </div>
-                    <div class="col-2">
-                        <input type="number" step="0.01" name="produto_bd_1[valor]" class="form-control">   
-                    </div>
-                    <div class="col-2">
-                        <input type="number" step="0.01" name="produto_bd_1[subtotal]" class="form-control">
-                    </div>
-                    <div class="col-2">
-                        <a class="btn btn-danger">Excluir</a>
-                        <a class="btn btn-warning">Atualizar</a>
-                    </div>
-                </div>
-
-
-                
             </div>
-
-
         </div>
         
 
 
 
 
-       <div class="container-fluid">
+       <div class="box-info container-fluid">
 
             <h1>Pagamentos</h1>
             
@@ -195,7 +167,7 @@
 
         </div>
 
-        <div class="container-fluid">
+        <div class="box-info container-fluid">
 
             <h1>Parcelas</h1>
             
@@ -228,6 +200,7 @@
                         <input type="text" name="parcela_bd_0[observacao]" class="form-control">
                     </div>
                     <div class="col-2">
+                        <label class="form-label"></label>
                         <a class="btn btn-danger">Excluir</a>
                     </div>
                 </div>
@@ -275,16 +248,7 @@
 
     </form>
 
-    <script>
+     <script src="{{asset('../js/vendas.js')}}" type="text/javascript"></script>
 
-        /*
-            Para adicionar itens na venda
-        */    
-
-        
-
-
-
-    </script>
 
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <p>EXCLUSÃO DE PRODUTOS</p>
+    <p class="titulo">Exclusão de produtos</p>
 
     <div>
         <p>Tem certeza que deseja excluir o produto {{$produto->nome}} com valor de venda {{$produto->valor_venda}}?</p>

@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <p>VENDAS</p>
+    <p class="titulo">Vendas</p>
 
-    <a href="/cadastro/vendas" class="btn btn-primary">Nova venda</a>
+    <a href="/cadastro/vendas" class="btn-cadastro btn btn-primary">Nova venda</a>
 
     <ul class="list-group">
         @if(count($vendas)!=0)

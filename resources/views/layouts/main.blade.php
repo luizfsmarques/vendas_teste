@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <!-- <link rel="icon"  href="{{asset('img/site/logo/site-logo-favicon.png')}}" type="image/png">  -->
         
         <title>Sistema vendas</title>
 
@@ -34,11 +33,12 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
-        
+        <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
+    
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Sistema vendas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         
                         @auth
@@ -79,7 +79,7 @@
 
                         @guest
                         <li class="nav-item">
-                            <a class="btn btn-outline-success" href="/login">Login</a>
+                            <a class="btn btn-outline-success" href="/login">Log in</a>
                         </li>
                         @endguest
                     </ul>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <p>Cadastro do produto</p>
+    <p class="titulo">Cadastro do produto</p>
 
     <form action="/produtos/store" method="POST" >
         @csrf
