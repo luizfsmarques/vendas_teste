@@ -196,7 +196,104 @@ addProd.addEventListener('click', function(){
         }
         
     }
-
 });
 
 
+// Para as parcelas
+
+let addParc = document.querySelector("#gerar-parcelas");
+let adicaoParcelas = document.querySelector("#adicao-paracelas");
+let inputQtdParcelas = document.querySelector("#qtd-parcelas");
+
+function criarElementosAdicaoParcelas (sequenciaParcela,valorParcela){
+    
+    // Container das parcelas adicionados
+    let parcelasAdicionadas = document.createElement('div');
+    parcelasAdicionadas.setAttribute('class','parcelas-adicionadas row');
+
+    // Input da sequência da parcela
+    let parcelaSequencia = document.createElement('div');
+    parcelaSequencia.setAttribute('class','col-2');
+    let inputSeq = document.createElement('input');
+    inputSeq.setAttribute('readonly','');
+    inputSeq.setAttribute('type','text');
+    inputSeq.setAttribute('name','parcela_bd_'+sequenciaParcela+'[parcela]');
+    inputSeq.setAttribute('class','form-control');
+    inputSeq.value = sequenciaParcela;
+    parcelaSequencia.appendChild(inputSeq);
+    parcelasAdicionadas.appendChild(parcelaSequencia);
+
+    // Input do vencimento da parcela
+    let parcelaVenc = document.createElement('div');
+    parcelaVenc.setAttribute('class','col-2');
+    let inputParcVenc = document.createElement('input');
+    inputParcVenc.setAttribute('type','date');
+    inputParcVenc.setAttribute('name','parcela_bd_'+sequenciaParcela+'[data_venc]');
+    inputParcVenc.setAttribute('class','form-control');
+    // inputParcVenc.value = codProd;
+    parcelaVenc.appendChild(inputParcVenc);
+    parcelasAdicionadas.appendChild(parcelaVenc);
+
+    // Input do valor da parcela
+    let parcelaValor = document.createElement('div');
+    parcelaValor.setAttribute('class','col-2');
+    let inputValorParc = document.createElement('input');
+    inputValorParc.setAttribute('type','text');
+    inputValorParc.setAttribute('step','0.01');
+    inputValorParc.setAttribute('name','parcela_bd_'+sequenciaParcela+'[valor]');
+    inputValorParc.setAttribute('class','parcela-atualizar form-control');
+    inputValorParc.value = valorParcela;
+    parcelaValor.appendChild(inputValorParc);
+    parcelasAdicionadas.appendChild(parcelaValor);
+
+    // Input do tipo de pagamento
+    let parcelaTipoPgmt = document.createElement('div');
+    parcelaTipoPgmt.setAttribute('class','col-2');
+    let selectPgmt = document.createElement('select');
+    selectPgmt.setAttribute('name','parcela_bd_'+sequenciaParcela+'[tipo_pgmt]');
+    selectPgmt.setAttribute('class','form-select');
+    let optionEscolha = document.createElement('option');
+    optionEscolha.setAttribute('selected','');
+    optionEscolha.innerText = 'Escolha o tipo de pagamento';
+    let optionDin = document.createElement('option');
+    optionDin.setAttribute('value','dinheiro');
+    optionDin.innerText = 'Dinheiro';
+    let optionDeb = document.createElement('option');
+    optionDeb.setAttribute('value','debito');
+    optionDeb.innerText = 'Cartão débito';
+    let optionCred = document.createElement('option');
+    optionCred.setAttribute('value','credito');
+    optionCred.innerText = 'Cartão crédito';
+
+    selectPgmt.appendChild(optionEscolha);
+    selectPgmt.appendChild(optionDin);
+    selectPgmt.appendChild(optionDeb);
+    selectPgmt.appendChild(optionCred);
+    parcelaTipoPgmt.appendChild(selectPgmt);
+    parcelasAdicionadas.appendChild(parcelaTipoPgmt);
+
+    // Input da observação da parcela
+    let parcelaObs = document.createElement('div');
+    parcelaObs.setAttribute('class','col-4');
+    let inputObs = document.createElement('input');
+    inputObs.setAttribute('type','text');
+    inputObs.setAttribute('name','parcela_bd_'+sequenciaParcela+'[observacao]');
+    inputObs.setAttribute('class','form-control');
+    parcelaObs.appendChild(inputObs);
+    parcelasAdicionadas.appendChild(parcelaObs);
+
+    // Adicionar todos os itens na tela
+    adicaoParcelas.appendChild(parcelasAdicionadas);
+
+}
+
+addParc.addEventListener('click', function(){
+
+    let valorParcela = Number(valorTotal)/Number(inputQtdParcelas.value);
+
+    for(let i=1;i<=Number(inputQtdParcelas.value);i++){
+        let sequenciaParcela = i;
+        criarElementosAdicaoParcelas(sequenciaParcela,valorParcela);
+    }
+    
+});

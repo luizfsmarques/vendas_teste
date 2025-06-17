@@ -167,27 +167,41 @@
 
         </div>
 
-        <div class="box-info container-fluid">
+        <div id="container-parcelas" class="box-info container-fluid">
 
             <h1>Parcelas</h1>
             
-            <div class="container-fluid">
+            <div id="adicao-paracelas" class="container-fluid">
 
                 <div class="row">
                     <div class="col-2">
                         <label class="form-label">Parcela</label>
-                        <input type="text" name="parcela_bd_0[parcela]" class="form-control">
                     </div>
                     <div class="col-2">
                         <label class="form-label">Vencimento</label>
-                        <input type="date" name="parcela_bd_0[data_venc]" class="form-control">
                     </div>
                     <div class="col-2">
                         <label class="form-label">Valor da parcela</label>
-                        <input type="number" step="0.01" name="parcela_bd_0[valor]" class="form-control">   
                     </div>
                     <div class="col-2">
                         <label class="form-label">Tipo de pagamento</label>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Observação</label>
+                    </div>
+                </div>
+
+                <!-- <div class="parcelas-adicionadas row">
+                    <div class="col-2">
+                        <input type="text" name="parcela_bd_0[parcela]" class="form-control">
+                    </div>
+                    <div class="col-2">
+                        <input type="date" name="parcela_bd_0[data_venc]" class="form-control">
+                    </div>
+                    <div class="col-2">
+                        <input type="number" step="0.01" name="parcela_bd_0[valor]" class="parcela-atualizar form-control">   
+                    </div>
+                    <div class="col-2">
                         <select name="parcela_bd_0[tipo_pgmt]" class="form-select" aria-label="tipo-pgmt">
                             <option selected>Escolha o tipo de pagamento</option>
                             <option value="dinheiro">Dinheiro</option>
@@ -195,48 +209,10 @@
                             <option value="credito">Cartão crédito</option>
                         </select>
                     </div>
-                    <div class="col-2">
-                        <label class="form-label">Observação</label>
+                    <div class="col-4">
                         <input type="text" name="parcela_bd_0[observacao]" class="form-control">
                     </div>
-                    <div class="col-2">
-                        <label class="form-label"></label>
-                        <a class="btn btn-danger">Excluir</a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-2">
-                        <label class="form-label">Parcela</label>
-                        <input type="text" name="parcela_bd_1[parcela]" class="form-control">
-                    </div>
-                    <div class="col-2">
-                        <label class="form-label">Vencimento</label>
-                        <input type="date" name="parcela_bd_1[data_venc]" class="form-control">
-                    </div>
-                    <div class="col-2">
-                        <label class="form-label">Valor da parcela</label>
-                        <input type="number" step="0.01" name="parcela_bd_1[valor]" class="form-control">   
-                    </div>
-                    <div class="col-2">
-                        <label class="form-label">Tipo de pagamento</label>
-                        <select name="parcela_bd_1[tipo_pgmt]" class="form-select" aria-label="tipo-pgmt">
-                            <option selected>Escolha o tipo de pagamento</option>
-                            <option value="dinheiro">Dinheiro</option>
-                            <option value="debito">Cartão débito</option>
-                            <option value="credito">Cartão crédito</option>
-                        </select>
-                    </div>
-                    <div class="col-2">
-                        <label class="form-label">Observação</label>
-                        <input type="text" name="parcela_bd_1[observacao]" class="form-control">
-                    </div>
-                    <div class="col-2">
-                        <a class="btn btn-danger">Excluir</a>
-                    </div>
-                </div>
-
-
+                </div> -->
 
             </div>
             

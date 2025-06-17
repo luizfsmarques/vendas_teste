@@ -14,7 +14,7 @@ class VendaController extends Controller
     public function index ()
     {
         $vendas = DB::table('vendas')
-        ->join('users', 'users.id', '=', 'vendas.id')
+        ->join('users', 'users.id', '=', 'vendas.vendedor')
         ->select('users.name','vendas.id','vendas.valor_total', 'vendas.created_at')
         ->get();
         
@@ -91,8 +91,6 @@ class VendaController extends Controller
             {
                 if(str_contains($key,'parcela_bd_'))
                 {
-
-                    // Ajeitar para salvar sempre com uma data e hora apenas
 
                     DB::table('parcelas')->insert([
                         'parcela' => $registro['parcela'],
