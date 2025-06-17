@@ -7,6 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+## Para instalação
+
+Primeiro mude o nome do arquivo .env.example para .env e depois adicione as configurações do banco de dados. Logo após execute os comandos no seu terminal, aberto no diretório do projeto.
+
+- npm install
+- composer install
+- php artisan storage:link 
+- php artisan key:generate
+- php artisan migrate
+- php artisan serve
+
+Agora basta acessar o seu localhost para testar o projeto.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
